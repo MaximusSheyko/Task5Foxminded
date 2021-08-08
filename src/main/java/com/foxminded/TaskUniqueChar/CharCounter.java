@@ -11,12 +11,18 @@ public class CharCounter {
     }
 
     public void showNumberOfCharacters(String... strings) throws IllegalAccessException {
+	if (strings == null) {
+	    throw new IllegalAccessException("string is null");
+	}
+
+	var result = new StringBuilder();
+
 	for (String str : strings) {
 	    if (cache.getCacheMemory().containsKey(str)) {
 		COUNT_CALL_CACHE++;
-		System.out.println(cache.getCacheMemory().get(str));
+		result.append(cache.getCacheMemory().get(str));
 	    } else {
-		System.out.println(charCounter.countNumberOfUniqueChar(str));
+		result.append(charCounter.countNumberOfUniqueChar(str));
 		cache.getCacheMemory().put(str, charCounter.countNumberOfUniqueChar(str));
 	    }
 	}
