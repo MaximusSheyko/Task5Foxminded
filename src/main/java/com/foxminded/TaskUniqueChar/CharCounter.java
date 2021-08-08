@@ -18,7 +18,6 @@ public class CharCounter {
 	    } else {
 		System.out.println(charCounter.countNumberOfUniqueChar(str));
 		cache.getCacheMemory().put(str, charCounter.countNumberOfUniqueChar(str));
-		charCounter.countNumberOfUniqueChar(str);
 	    }
 	}
     }
