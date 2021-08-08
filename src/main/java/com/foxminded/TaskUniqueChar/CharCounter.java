@@ -10,7 +10,7 @@ public class CharCounter {
 	this.charCounter = charCounter;
     }
 
-    public void showNumberOfCharacters(String... strings) throws IllegalAccessException {
+    public String countUniqueCharacters(String... strings) throws IllegalAccessException {
 	if (strings == null) {
 	    throw new IllegalAccessException("string is null");
 	}
@@ -26,5 +26,7 @@ public class CharCounter {
 		cache.getCacheMemory().put(str, charCounter.countNumberOfUniqueChar(str));
 	    }
 	}
+	
+	return result.toString();
     }
 }
