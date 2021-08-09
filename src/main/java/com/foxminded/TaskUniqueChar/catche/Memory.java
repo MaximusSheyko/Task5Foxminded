@@ -1,19 +1,24 @@
-package com.foxminded.TaskUniqueChar;
+package com.foxminded.TaskUniqueChar.catche;
 
 import java.util.HashMap;
+import java.util.Map;
 
-public class Cache {
-    private HashMap<String, String> cacheMemory = new HashMap<>();
+public class Memory implements Cache<String, String> {
 
-    public HashMap<String, String> getCacheMemory() {
-	return cacheMemory;
+    private Map<String, String> cacheMemory = new HashMap<>();
+
+    @Override
+    public Map<String, String> getCache() {
+	return this.cacheMemory;
     }
 
-    public void setCacheMemory(HashMap<String, String> cacheMemory) {
-	this.cacheMemory = cacheMemory;
+    @Override
+    public void setCache(Map<String, String> inCache) {
+	this.cacheMemory = inCache;
     }
 
-    public void putMap(String key, String value) {
+    @Override
+    public void putCache(String key, String value) {
 	this.cacheMemory.put(key, value);
     }
 }
