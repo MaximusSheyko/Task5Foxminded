@@ -1,6 +1,6 @@
 package com.foxminded.TaskUniqueChar;
 
-import com.foxminded.TaskUniqueChar.catche.Memory;
+import com.foxminded.TaskUniqueChar.cache.Memory;
 import com.foxminded.TaskUniqueChar.format.Formatter;
 import com.foxminded.TaskUniqueChar.logic.UniqueCharCounter;
 

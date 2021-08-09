@@ -1,4 +1,4 @@
-package com.foxminded.TaskUniqueChar.catche;
+package com.foxminded.TaskUniqueChar.cache;
 
 import java.util.HashMap;
 import java.util.Map;
