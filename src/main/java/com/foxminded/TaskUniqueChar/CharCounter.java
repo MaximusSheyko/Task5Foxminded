@@ -1,32 +1,48 @@
 package com.foxminded.TaskUniqueChar;
 
-public class CharCounter {
-    private Cache cache;
-    private UniqueCharCounter charCounter;
-    public static int COUNT_CALL_CACHE = 0;
+import com.foxminded.TaskUniqueChar.catche.Memory;
+import com.foxminded.TaskUniqueChar.format.Formatter;
+import com.foxminded.TaskUniqueChar.logic.UniqueCharCounter;
 
-    public CharCounter(Cache cache, UniqueCharCounter charCounter) {
-	this.cache = cache;
-	this.charCounter = charCounter;
+import java.util.ArrayList;
+import java.util.List;
+
+public class CharCounter {
+    private Memory cache;
+    private UniqueCharCounter charCounter;
+    private Formatter form;
+    private List<String> resultCount = new ArrayList<>();
+
+    private String getResultCount() {
+	var totalResult = new StringBuilder();
+
+	for (String result : resultCount) {
+	    totalResult.append(result);
+	}
+
+	return totalResult.toString();
     }
 
-    public String countUniqueCharacters(String... strings) throws IllegalAccessException {
-	if (strings == null) {
-	    throw new IllegalAccessException("string is null");
-	}
+    public CharCounter(Memory cache, UniqueCharCounter charCounter, Formatter form) {
+	this.cache = cache;
+	this.charCounter = charCounter;
+	this.form = form;
+    }
 
-	var result = new StringBuilder();
+    public String showNumberOfCharacters(String... strings) throws IllegalAccessException {
+	if (strings == null) {
+	    throw new IllegalAccessException("input dates is null");
+	}
 
 	for (String str : strings) {
-	    if (cache.getCacheMemory().containsKey(str)) {
-		COUNT_CALL_CACHE++;
-		result.append(cache.getCacheMemory().get(str));
+	    if (cache.getCache().containsKey(str)) {
+		resultCount.add(cache.getCache().get(str));
 	    } else {
-		result.append(charCounter.countNumberOfUniqueChar(str));
-		cache.getCacheMemory().put(str, charCounter.countNumberOfUniqueChar(str));
+		resultCount.add(form.getForm(charCounter.countNumberOfUniqueChar(str)));
+		cache.putCache(str, form.getForm(charCounter.countNumberOfUniqueChar(str)));
 	    }
 	}
-	
-	return result.toString();
+
+	return getResultCount();
     }
 }
