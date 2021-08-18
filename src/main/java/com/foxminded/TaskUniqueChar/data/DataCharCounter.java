@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataCharCounter {
-    List<String> symbols = new ArrayList<>();
-    List<Integer> amountOfSymbols = new ArrayList<>();
-    String preSplitString;
+    private List<String> symbols = new ArrayList<>();
+    private List<Integer> amountOfSymbols = new ArrayList<>();
+    private String preSplitString;
 
     public List<String> getSymbols() {
 	return symbols;

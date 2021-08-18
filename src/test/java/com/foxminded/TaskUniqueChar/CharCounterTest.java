@@ -11,20 +11,19 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import com.foxminded.TaskUniqueChar.cache.Memory;
-import com.foxminded.TaskUniqueChar.data.DataCharCounter;
 import com.foxminded.TaskUniqueChar.format.Formatter;
 import com.foxminded.TaskUniqueChar.logic.UniqueCharCounter;
 
 @RunWith(MockitoJUnitRunner.class)
 class CharCounterTest {
     @Mock
-    Formatter form;
+    private Formatter form;
     @Mock
-    Memory memory;
+    private Memory memory;
     @Mock
-    UniqueCharCounter counter;
+    private UniqueCharCounter counter;
     @InjectMocks
-    CharCounter facade;
+    private CharCounter facade;
     
     @BeforeEach
     void init() {

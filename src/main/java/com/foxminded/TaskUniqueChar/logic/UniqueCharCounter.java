@@ -6,14 +6,16 @@ import java.util.stream.Stream;
 import com.foxminded.TaskUniqueChar.data.DataCharCounter;
 
 public class UniqueCharCounter {
-
+    
+    public static final String ILLEGAL_EX = "input data is null";
+    
     public DataCharCounter countNumberOfUniqueChar(String inString) throws IllegalAccessException {
 	if (inString == null) {
-	    throw new IllegalAccessException("input string is null");
+	    throw new IllegalAccessException(ILLEGAL_EX);
 	}
 
-	DataCharCounter data = new DataCharCounter();
-	final String spliterator = "";
+	var data = new DataCharCounter();
+	final var spliterator = "";
 	List<String> symbols = Arrays.stream(inString.split(spliterator)).distinct().toList();
 
 	data.setPreSplitString(inString);

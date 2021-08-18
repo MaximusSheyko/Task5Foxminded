@@ -2,13 +2,16 @@ package com.foxminded.TaskUniqueChar.format;
 
 import com.foxminded.TaskUniqueChar.data.DataCharCounter;
 
-public class Formatter {
-
+public class Formatter implements com.foxminded.TaskUniqueChar.intarfaces.Formatter{
+    
+    public static final String ILLEGAL_EX = "input data is null";
+    
+    @Override
     public String getForm(DataCharCounter data) throws IllegalAccessException {
 	if (data == null) {
-	    throw new IllegalAccessException("input data is null");
+	    throw new IllegalAccessException(ILLEGAL_EX);
 	}
-
+		
 	var form = new StringBuilder();
 	String spliterator = System.lineSeparator();
 

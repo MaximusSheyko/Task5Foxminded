@@ -9,7 +9,7 @@ import com.foxminded.TaskUniqueChar.logic.UniqueCharCounter;
 
 class UniqueCharCounterTest {
     
-    UniqueCharCounter charCounter;
+    private UniqueCharCounter charCounter;
     private String messageEx = assertThrows(NullPointerException.class, 
 	    () -> charCounter.countNumberOfUniqueChar(null)).getMessage();
     
