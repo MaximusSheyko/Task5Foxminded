@@ -14,9 +14,8 @@ import com.foxminded.TaskUniqueChar.format.Formatter;
 
 class FormatterTest {
 
-    Formatter form;
-    DataCharCounter data;
-    private String messageEx = assertThrows(NullPointerException.class, () -> form.getForm(null)).getMessage();
+    private Formatter form;
+    private DataCharCounter data;
     private String outputString = "sm" + System.lineSeparator()
     	+ "'s' -> 1" + System.lineSeparator() + "'m' -> 1" + System.lineSeparator();
 
@@ -28,7 +27,8 @@ class FormatterTest {
 
     @Test
     void testGetForm_whenInDataIsNull() {
-	assertNotNull(messageEx);
+	assertNotNull(assertThrows(NullPointerException.class,
+		() -> form.getForm(null)).getMessage());
     }
     
     
