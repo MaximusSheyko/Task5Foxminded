@@ -1,35 +1,19 @@
 package com.foxminded.TaskUniqueChar.data;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DataCharCounter {
-    private List<String> symbols = new ArrayList<>();
-    private List<Integer> amountOfSymbols = new ArrayList<>();
+    
+    private Map<String, Integer> symbolAndAmountOfSymbols = new HashMap<>();
     private String preSplitString;
-
-    public List<String> getSymbols() {
-	return symbols;
+ 
+    public Map<String, Integer> getSymbolAndAmountOfSymbols() {
+        return symbolAndAmountOfSymbols;
     }
 
-    public void setSymbols(List<String> symbols) {
-	this.symbols = symbols;
-    }
-
-    public void addSymbols(String symbol) {
-	this.symbols.add(symbol);
-    }
-
-    public List<Integer> getAmountOfSymbols() {
-	return amountOfSymbols;
-    }
-
-    public void setAmountOfSymbols(List<Integer> amountOfSymbols) {
-	this.amountOfSymbols = amountOfSymbols;
-    }
-
-    public void addAmountOfSymbols(Integer count) {
-	this.amountOfSymbols.add(count);
+    public void putSymbolAndAmountOfSymbols(String key, Integer amountOfSymbols) {
+        this.symbolAndAmountOfSymbols.put(key, amountOfSymbols);
     }
 
     public String getPreSplitString() {

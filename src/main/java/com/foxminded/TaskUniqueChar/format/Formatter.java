@@ -1,27 +1,29 @@
 package com.foxminded.TaskUniqueChar.format;
 
+import java.util.Set;
+
 import com.foxminded.TaskUniqueChar.data.DataCharCounter;
 
 public class Formatter implements com.foxminded.TaskUniqueChar.intarfaces.Formatter{
     
-    public static final String ILLEGAL_EX = "input data is null";
+    private static final String ILLEGAL_EXCEPTION = "input data is null";
     
     @Override
-    public String getForm(DataCharCounter data) throws IllegalAccessException {
+    public String getForm(DataCharCounter data) throws IllegalArgumentException {
 	if (data == null) {
-	    throw new IllegalAccessException(ILLEGAL_EX);
+	    throw new IllegalArgumentException(ILLEGAL_EXCEPTION);
 	}
 		
-	var form = new StringBuilder();
+	var formTable = new StringBuilder();
+	Set<String> keys = data.getSymbolAndAmountOfSymbols().keySet ();
 	String spliterator = System.lineSeparator();
 
-	form.append(data.getPreSplitString()).append(spliterator);
+	formTable.append(data.getPreSplitString()).append(spliterator);
 
-	for (int count = 0; data.getSymbols().size() > count; count++) {
-	    form.append(String.format("'%s' -> %d%s", data.getSymbols().get(count),
-		    data.getAmountOfSymbols().get(count), System.lineSeparator()));
-	}
-
-	return form.toString();
+	keys.stream()
+		.forEach(key -> formTable.append(String.format("'%s' -> %d%s", key,
+		    data.getSymbolAndAmountOfSymbols().get(key), System.lineSeparator())));
+	
+	return formTable.toString();
     }
 }

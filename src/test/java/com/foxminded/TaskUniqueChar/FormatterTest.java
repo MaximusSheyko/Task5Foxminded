@@ -27,19 +27,17 @@ class FormatterTest {
 
     @Test
     void testGetForm_whenInDataIsNull() {
-	assertNotNull(assertThrows(NullPointerException.class,
+	assertNotNull(assertThrows(IllegalArgumentException.class,
 		() -> form.getForm(null)).getMessage());
     }
     
     
     @Test
     void testGetForm_whenDataIsValid() throws IllegalAccessException {
-	List<String> testSymbols = Arrays.asList("s", "m");
-	List<Integer> testNumbers = Arrays.asList(1, 1);
 	
 	data.setPreSplitString("sm");
-	data.setSymbols(testSymbols);
-	data.setAmountOfSymbols(testNumbers);
+	data.putSymbolAndAmountOfSymbols("m", 1);
+	data.putSymbolAndAmountOfSymbols("s", 1);
 	
 	assertNotNull(form.getForm(data));
 	assertEquals(outputString, form.getForm(data));
